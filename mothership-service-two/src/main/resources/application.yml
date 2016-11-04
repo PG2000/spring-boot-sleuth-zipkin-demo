@@ -1,0 +1,7 @@
+spring:
+  zipkin:
+    baseUrl: http://${ZIPKIN_BASE_URL}
+  application:
+    name: mothership-service-two
+server:
+  port: 8081

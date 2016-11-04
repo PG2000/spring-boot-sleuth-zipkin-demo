@@ -1,0 +1,18 @@
+version: "2"
+services:
+  open-zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411
+  mothership-service-one:
+    build: ./mothership-service-one
+    ports:
+      - "8080:8080"
+    environment:
+      - "ZIPKIN_BASE_URL=open-zipkin:9411"
+  mothership-service-two:
+    build: ./mothership-service-two
+    ports:
+      - "8081:8081"
+    environment:
+      - "ZIPKIN_BASE_URL=open-zipkin:9411"
