@@ -1,14 +1,16 @@
 # spring-boot-sleuth-zipkin-demo
 
-Zum starten der Demo:
-docker-compose up -d
+## Starten der Demo:
+./mothership-service-one/gradlew build \
+&& mothership-service-two/gradlew build \
+&& docker-compose up -d
 
-Dann einfach per curl
+Nach ein paar Sekunden dann einfach in der Console folgendes aufrufen:
+
 curl 'http://localhost:8080/mothership-one-service/demo'
 
-oder im Browser folgendes ein paar mal hintereinander aufrufen:
+oder einfach im Browser ein paar mal hintereinander folgende Seite aufrufen:
 http://localhost:8080/mothership-one-service/demo
 
 Danach kann man sich im Zipkin Server unter:
-http://localhost:9400 die Traces anschauen.
-
+http://localhost:9411 die Traces anschauen.
